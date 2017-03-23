@@ -13,9 +13,11 @@ public class PlayerController : MonoBehaviour {
 	public Text scoreText;
 	private float startTime;
 	private int jumpsLeft = 2;
+    public AudioSource jump;
+    public AudioSource mati;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		myRigidBody = GetComponent<Rigidbody2D> ();
 		myAnim = GetComponent<Animator> ();
 		myCollider = GetComponent<Collider2D> ();	
@@ -45,37 +47,56 @@ public class PlayerController : MonoBehaviour {
 				}
 			
 				jumpsLeft--;
+                jump.Play();
 
-			}
+            }
 			myAnim.SetFloat ("vVelocity", myRigidBody.velocity.y);
-			scoreText.text = (Time.time - startTime).ToString ("0.0");
+			scoreText.text = ((Time.time - startTime) * 3).ToString ("0");
 		} 
 		else {
 			if (Time.time > playerHurtTime + 2) {
-				Application.LoadLevel (Application.loadedLevel);
+                Application.LoadLevel (Application.loadedLevel);
+                              
+                
 			}
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision){
-		if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
+        if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
 
-			foreach (RintanganSpawner spawner in FindObjectsOfType<RintanganSpawner>()) {
-				spawner.enabled = false;
-			}
+            foreach (RintanganSpawner spawner in FindObjectsOfType<RintanganSpawner>())
+            {
+                spawner.enabled = false;
+            }
 
-			foreach (MoveLeft moveLefter in FindObjectsOfType<MoveLeft>()) {
-				moveLefter.enabled = false;
-			}
+            foreach (MoveLeft moveLefter in FindObjectsOfType<MoveLeft>())
+            {
+                moveLefter.enabled = false;
+            }
 
-			playerHurtTime = Time.time;
-			myAnim.SetBool ("playerHurt", true);
-			myRigidBody.velocity = Vector2.zero;
-			myRigidBody.AddForce (transform.up * playerJumpForce);
-			myCollider.enabled = false;
-		} 
-		else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")){
-			jumpsLeft = 2;
-		}
+            playerHurtTime = Time.time;
+            myAnim.SetBool("playerHurt", true);
+            myRigidBody.velocity = Vector2.zero;
+            myRigidBody.AddForce(transform.up * playerJumpForce);
+            myCollider.enabled = false;
+
+            mati.Play();
+
+            OnDeath();
+
+        }
+        
+        else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            jumpsLeft = 2;
+        }
 	}
+
+    void OnDeath()
+    {
+        
+        Application.LoadLevel("Death");
+    }
 }
