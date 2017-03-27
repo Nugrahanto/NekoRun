@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
+
+	public Text txtBestScore;
 
     // Use this for initialization
     
 
     void Start () {
-		
+		txtBestScore.text = PlayerPrefs.GetFloat ("BestScore", 0).ToString ("0");
 	}
 	
 	// Update is called once per frame
@@ -23,4 +26,9 @@ public class MenuController : MonoBehaviour {
 	public void StartGame(){
 		Application.LoadLevel("Games");
 	}
+		
+	public void play(){
+		Application.LoadLevel ("Video");
+	}
+
 }

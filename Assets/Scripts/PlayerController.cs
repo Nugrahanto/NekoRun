@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Application.LoadLevel ("Title");
+				Application.LoadLevel ("Title");
 		}
 
 		if (playerHurtTime == -1) {
@@ -86,6 +86,13 @@ public class PlayerController : MonoBehaviour {
 
             OnDeath();
 
+			float currentBestScore = PlayerPrefs.GetFloat ("BestScore", 0);
+			float currentScore = Time.time - startTime;
+
+			if (currentScore > currentBestScore) {
+				PlayerPrefs.SetFloat ("BestScore", currentScore);
+			}
+
         }
         
         else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
@@ -96,7 +103,6 @@ public class PlayerController : MonoBehaviour {
 
     void OnDeath()
     {
-        
-        Application.LoadLevel("Death");
+    	Application.LoadLevel("Death");
     }
 }
