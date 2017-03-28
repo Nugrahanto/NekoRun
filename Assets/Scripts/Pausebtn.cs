@@ -8,6 +8,7 @@ public class Pausebtn : MonoBehaviour {
 	//bool Pause = false;
 	public GameObject btnPause;
 	public GameObject btnPlay;
+	public GameObject imgBg;
 	public bool paused;
 
 	// Use this for initialization
@@ -29,12 +30,14 @@ public class Pausebtn : MonoBehaviour {
 				Time.timeScale = 0;
 				btnPause.SetActive (false);
 				btnPlay.SetActive (true);
+				imgBg.SetActive (true);
 			}
 			else
 			{
 				Time.timeScale = 1;
 				btnPause.SetActive (true);
 				btnPlay.SetActive (false);
+				imgBg.SetActive (false);
 			}
 	}  
 }

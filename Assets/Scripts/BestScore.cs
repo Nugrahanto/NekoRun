@@ -10,7 +10,7 @@ public class BestScore : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		txtBestScore.text = PlayerPrefs.GetFloat ("BestScore", 0).ToString ("0");		
+		txtBestScore.text = PlayerPrefs.GetFloat ("BestScore", 0).ToString ("0");
 	}
 	
 	// Update is called once per frame
