@@ -1,0 +1,2 @@
+alias : annisa, arddhan, faiqoh, iqbal, rian
+password : nekorun	
