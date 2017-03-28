@@ -6,18 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
-	public Text txtBestScore;
+//	public Text txtBestScore;
 
     // Use this for initialization
     
 
     void Start () {
-		txtBestScore.text = PlayerPrefs.GetFloat ("BestScore", 0).ToString ("0");
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        
 
         if (Input.GetKeyDown (KeyCode.Escape)) {
 			Application.Quit();
@@ -27,5 +26,14 @@ public class MenuController : MonoBehaviour {
 	public void StartGame(){
 		//Application.LoadLevel("Games");
 		SceneManager.LoadScene("Games");
+	}
+
+	public void About(){
+		SceneManager.LoadScene("About");
+	}
+
+	public void doquitt(){
+		Debug.Log ("has quit game");
+		Application.Quit ();
 	}
 }
