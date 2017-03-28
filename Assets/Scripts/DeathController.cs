@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeathController : MonoBehaviour {
 
@@ -16,12 +17,14 @@ public class DeathController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.LoadLevel("Title");
+            //Application.LoadLevel("Title");
+			SceneManager.LoadScene("Title");
         }
     }
 
     public void StartGame()
     {
-        Application.LoadLevel("Games");
+        //Application.LoadLevel("Games");
+		SceneManager.LoadScene("Games");
     }
 }

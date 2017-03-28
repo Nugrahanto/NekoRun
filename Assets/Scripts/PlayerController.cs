@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -29,7 +30,8 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-				Application.LoadLevel ("Title");
+				//Application.LoadLevel ("Title");
+			SceneManager.LoadScene("Title");
 		}
 
 		if (playerHurtTime == -1) {
@@ -55,8 +57,8 @@ public class PlayerController : MonoBehaviour {
 		} 
 		else {
 			if (Time.time > playerHurtTime + 2) {
-                Application.LoadLevel (Application.loadedLevel);
-                              
+                //Application.LoadLevel (Application.loadedLevel);
+				//SceneManager.LoadScene(Application.loadedLevel);              
                 
 			}
 		}
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour {
             OnDeath();
 
 			float currentBestScore = PlayerPrefs.GetFloat ("BestScore", 0);
-			float currentScore = Time.time - startTime;
+			float currentScore = (Time.time - startTime) * 3;
 
 			if (currentScore > currentBestScore) {
 				PlayerPrefs.SetFloat ("BestScore", currentScore);
@@ -103,6 +105,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnDeath()
     {
-    	Application.LoadLevel("Death");
+    	//Application.LoadLevel("Death");
+		SceneManager.LoadScene("Death");
     }
 }
