@@ -10,7 +10,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: NgGames
+  companyName: SMK Telkom Malang
   productName: Neko Run
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -198,7 +198,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: E:/MOKLET/XI/PPB/Project/NekoRun/user.keystore
-  AndroidKeyaliasName: 
+  AndroidKeyaliasName: annisa, arddhan, faiqoh, iqbal, rian
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   androidEnableBanner: 1

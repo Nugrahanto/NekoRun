@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour {
     public AudioSource jump;
     public AudioSource mati;
 
+	public GameObject btnPause;
+	public GameObject btnPlay;
+	public GameObject btnHome;
+	public GameObject imgBg;
+
     // Use this for initialization
     void Start () {
 		myRigidBody = GetComponent<Rigidbody2D> ();
@@ -31,7 +36,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 				//Application.LoadLevel ("Title");
-			SceneManager.LoadScene("Title");
+			//SceneManager.LoadScene("Title");
+			Time.timeScale = 0;
+			btnPause.SetActive (false);
+			btnPlay.SetActive (true);
+			btnHome.SetActive (true);
+			imgBg.SetActive (true);
 		}
 
 		if (playerHurtTime == -1) {

@@ -8,6 +8,7 @@ public class Pausebtn : MonoBehaviour {
 	//bool Pause = false;
 	public GameObject btnPause;
 	public GameObject btnPlay;
+	public GameObject btnHome;
 	public GameObject imgBg;
 	public bool paused;
 
@@ -23,6 +24,7 @@ public class Pausebtn : MonoBehaviour {
 
 	public void Pause () {
 
+
 		paused = !paused;
 
 			if (Time.timeScale == 1)
@@ -30,6 +32,7 @@ public class Pausebtn : MonoBehaviour {
 				Time.timeScale = 0;
 				btnPause.SetActive (false);
 				btnPlay.SetActive (true);
+				btnHome.SetActive (true);
 				imgBg.SetActive (true);
 			}
 			else
@@ -37,6 +40,7 @@ public class Pausebtn : MonoBehaviour {
 				Time.timeScale = 1;
 				btnPause.SetActive (true);
 				btnPlay.SetActive (false);
+				btnHome.SetActive (false);
 				imgBg.SetActive (false);
 			}
 	}  
