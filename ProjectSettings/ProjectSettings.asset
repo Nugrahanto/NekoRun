@@ -197,7 +197,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/MOKLET/XI/PPB/Project/NekoRun/user.keystore
+  AndroidKeystoreName: E:/MOKLET/XI/PPB/Project/Signing/user.keystore
   AndroidKeyaliasName: annisa, arddhan, faiqoh, iqbal, rian
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
